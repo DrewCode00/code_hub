@@ -1,2 +1,26 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+var express = require("express");
+var router = express.Router();
+
+
+/** Get Home Page */
+
+router.get("/", function(req, res, next){
+    res.render("index", {title: "CodeHub- Sharing Code just got easier"});
+
+
+});
+
+router.get("/about", function(req, res, next){
+    res.render("about", {title: "CodeHub- Sharing Code just got easier"})
+})
+
+
+
+
+
+
+
+module.exports =router;
+
+
+
