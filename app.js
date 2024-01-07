@@ -9,6 +9,16 @@ var ExpressValidator = require("express-validator");
 var bodyParser = require("body-parser");
 var express = require("express");
 
+
+var mongoose = require('mongoose');
+var config = require('./config');
+
+
+mongoose.connect(config.dbConnString);
+global.User = require('./models/user');
+ 
+
+
 var indexRouter = require('./routes/index');
 
 
