@@ -54,14 +54,7 @@ router.get("/contact", function(req, res, next){
    
   }
 
-  router.get('/login', function(req, res, next){
-    res.render('login', {title: 'Login your account'});
 
-  });
-
-  router.get('/register', function(req, res, next){
-    res.render('register', {title: 'Register a new account'});
-  });
  
 });
 
