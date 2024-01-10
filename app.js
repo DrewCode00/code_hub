@@ -22,10 +22,12 @@ require('./passport');
 var config = require('./config');
 var indexRoute = require('./routes/index');
 var authRoute = require('./routes/auth');
+var taskRoute = require('./routes/task');
 
 
 mongoose.connect(config.dbConnString);
 global.User = require('./models/user');
+global.Task = require('./models/task');
  
 
 
@@ -69,6 +71,7 @@ app.use(function(req,res, next){
 
 app.use('/', indexRoute);
 app.use('/', authRoute);
+app.use('/', taskRoute);
 
 
 // catch 404 and forward to error handler

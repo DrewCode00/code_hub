@@ -14,7 +14,9 @@ var userScheme = new mongoose.Schema({
         required: true
     },
     hash: String,
-    salt: String
+    salt: String,
+    facebookId: String
+
 });
 
 userScheme.methods.setPassword = function(password){

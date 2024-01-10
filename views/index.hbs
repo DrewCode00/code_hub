@@ -4,17 +4,13 @@ var router = express.Router();
 
 /** Get Home Page */
 
-router.get("/", function(req, res, next){
-    res.render("index", {title: "CodeHub- Sharing Code just got easier"});
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
 
 
-});
-
-router.get("/about", function(req, res, next){
-    res.render("about", {title: "CodeHub- Sharing Code just got easier"})
-})
-
-
+{{ #if user }}
+<a href="/createTask" class="btn btn-primary">Create New Task</a>
+{{ /if }}
 
 
 
