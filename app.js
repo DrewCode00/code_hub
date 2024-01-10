@@ -48,7 +48,7 @@ app.use(session({
   secret: config.sessionKey,
     resave: false,
     saveUninitialized: true,
-    cookie: {secure: true}
+    
 
 }));
 
@@ -56,6 +56,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req,res, next){
+  if(req.isAuthenticated()){
+    res.locals.user =req.user;
+
+  }
+  next();
+
+
+});
 
 app.use('/', indexRoute);
 app.use('/', authRoute);
