@@ -1,1 +1,72 @@
-<h1>This is a new Task</h1>
+<div>
+    <div class="col-md=8">
+        <textarea id="code-screen">
+
+        </textarea>
+
+    </div>
+    <div class="col-md-4" id="chatbox">
+        <!--CHAT BOX -->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        CHAT ROOM
+        <span class="pull-right" id="chatbox-username">
+            {{ #if user }}
+            {{ user.name }}
+            {{ /if }}
+        </span>
+
+    </div>
+     <div class="panel-body">
+        <ul class="media-list" style="height: 300px; overflow-y: scroll" id="chat-box-listMessages">
+
+
+        </ul>
+        
+    </div>
+     <div class="panel-footer">
+        <div class="input-gorup">
+            <input type="text" class="form-control" placeholder="Enter Message" id="userMessage"/>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-primary" onclick="sendMessage()">SEND</button>
+
+            </span>
+
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+    </div>
+     </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js">
+
+<script>
+    var socket =io.connect('http://localhost:3000');
+    var editor = CodeMirror.fromTextArea(document.getElementById("code-screen"), {
+        lineNumbers: true,
+        theme: "monokai"
+    });
+
+
+    var username =$("#chatbox-username").val();
+    if(username ==""){
+      var userId = MAth.floor(Math.random() *9999).toString();
+      username ="User" + userId;
+      $("#checkbox-username").text(username);
+
+
+    }
+
+    var userMessage = function(name, text){
+        return ('<li class="media"><div class="media-body">')
+    }
+
+</script>
