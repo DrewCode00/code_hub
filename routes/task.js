@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/createTask', function(req, res){
     var newTAsk = new task();
 
-    newTAsk.save(function(err, data){
+    newTask.save(function(err, data){
         if (err){
             console.log(err);
             res.render('error');
@@ -25,7 +25,7 @@ router.get('/task/:id', function(req,res){
 
            } 
            if(data){
-            res.render('task', {data: data});
+            res.render('task', {content: data.content, roomId: data.id});
 
            }else{
             res.render('error');
